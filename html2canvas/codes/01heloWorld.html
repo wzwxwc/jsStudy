@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <style>
+        img {
+            width: 200px;
+            height: 1400px;
+        }
+    </style>
+    <script src="../html2canvas-0.5.0-beta4/dist/html2canvas.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("trigger").onclick = function () {
+                $("img").click(function () {
+                    alert('hehe');
+                })
+            }
+
+
+        };
+
+        function fn1() {
+            html2canvas(document.body).then(function (canvas) {
+                document.body.appendChild(canvas);
+            });
+        }
+
+        function fn2() {
+            html2canvas($("#tbl_exception"), {
+                onrendered: function (canvas) {
+                    var url = canvas.toDataURL();
+                    //以下代码为下载此图片功能
+                    var triggerDownload = $("<a>").attr("href", url).attr("download", getNowFormatDate() + "异常信息.png").appendTo("body");
+                    triggerDownload[0].click();
+                    triggerDownload.remove();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<button id="trigger">触发</button>
+<div id="original">
+    <img src="imgs/test.jpg" alt="">
+    <table>
+        <tr>
+            <th>人物</th>
+            <th>工资</th>
+        </tr>
+        <tr>
+            <td>zc</td>
+            <td>100W</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
