@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>github下载</title>
-    <link href="Pager.css" rel="stylesheet" type="text/css"/>
+    <link href="css/Pager.css" rel="stylesheet" type="text/css"/>
     <script src="../deps/jquery.js" type="text/javascript"></script>
     <script src="jquery.pager.js" type="text/javascript"></script>
     <script type="text/javascript" language="javascript">
@@ -13,21 +13,47 @@
         //pagecount 为显示页数
         //PageClick 为回调函数
         //pageclickednumber 为点击页码
+        var rowCountPerPage = 3;
         $(document).ready(function () {
-            $("#pager").pager({
-                pagenumber: 1,
-                pagecount: 5,
-                buttonClickCallback: PageClick
-            });
+            fnGetData(1, rowCountPerPage, function (res) {
+                $("#pager").pager({
+                    pagenumber: 1,
+                    pagecount: res.rowCount / rowCountPerPage,
+                    buttonClickCallback: PageClick
+                });
+                $("#result").html(fnCreateList(res.currentPageData));
+            })
         });
 
-        PageClick = function (pageclickednumber) {
+        //构造list
+        function fnCreateList(data) {
+            console.log(data);
+        }
+
+        function PageClick(pageclickednumber) {
             $("#pager").pager({
                 pagenumber: pageclickednumber,
                 pagecount: 15,
                 buttonClickCallback: PageClick
             });
             $("#result").html("Clicked Page " + pageclickednumber);
+        }
+
+        //currentPageIndex——当前页码（从1开始计算）
+        //rowCountPerPage——每页的记录数
+        function fnGetData(currentPageIndex, rowCountPerPage, fnSucessCallback) {
+            $.ajax({
+                url: "../datas/data.json",
+                type: "post",
+                data: {
+                    currentPageNum: currentPageIndex,
+                    rowCount: rowCountPerPage
+                },
+                success: fnSucessCallback,
+                error: function (err) {
+                    console.log(err);
+                }
+            })
         }
 
     </script>
