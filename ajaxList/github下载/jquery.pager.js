@@ -49,7 +49,7 @@
         var $pager = $('<ul class="pages"></ul>');
 
         // add in the previous and next buttons
-        $pager.append(renderButton('first', pagenumber, pagecount, buttonClickCallback)).append(renderButton('prev', pagenumber, pagecount, buttonClickCallback));
+        $pager.append(renderButton('首页', pagenumber, pagecount, buttonClickCallback)).append(renderButton('上页', pagenumber, pagecount, buttonClickCallback));
 
         // pager currently only handles 10 viewable pages ( could be easily parameterized, maybe in next version ) so handle edge cases
         var startPoint = 1;
@@ -79,12 +79,12 @@
         }
 
         // render in the next and last buttons before returning the whole rendered control back.
-        $pager.append(renderButton('next', pagenumber, pagecount, buttonClickCallback)).append(renderButton('last', pagenumber, pagecount, buttonClickCallback));
+        $pager.append(renderButton('下页', pagenumber, pagecount, buttonClickCallback)).append(renderButton('尾页', pagenumber, pagecount, buttonClickCallback));
 
         return $pager;
     }
 
-    // renders and returns a 'specialized' button, ie 'next', 'previous' etc. rather than a page number button
+    // renders and returns a 'specialized' button, ie '下页', 'previous' etc. rather than a page number button
     function renderButton(buttonLabel, pagenumber, pagecount, buttonClickCallback) {
 
         var $Button = $('<li class="pgNext">' + buttonLabel + '</li>');
@@ -93,22 +93,22 @@
 
         // work out destination page for required button type
         switch (buttonLabel) {
-            case "first":
+            case "首页":
                 destPage = 1;
                 break;
-            case "prev":
+            case "上页":
                 destPage = pagenumber - 1;
                 break;
-            case "next":
+            case "下页":
                 destPage = pagenumber + 1;
                 break;
-            case "last":
+            case "尾页":
                 destPage = pagecount;
                 break;
         }
 
         // disable and 'grey' out buttons if not needed.
-        if (buttonLabel == "first" || buttonLabel == "prev") {
+        if (buttonLabel == "首页" || buttonLabel == "上页") {
             pagenumber <= 1 ? $Button.addClass('pgEmpty') : $Button.click(function() { buttonClickCallback(destPage); });
         }
         else {

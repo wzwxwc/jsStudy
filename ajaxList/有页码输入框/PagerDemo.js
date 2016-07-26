@@ -7,7 +7,7 @@ function init(pagenumber) {
     //向服务器发送请求，查询满足条件的记录
     //$.getJSON('',{},function(data){
     //data 为返回json 对象 并包括(pagecount、totalcount)的key-value值;
-    var data = {'pagecount': 15, 'totalcount': 150};
+    var data = {'pagecount': 10, 'totalcount': 150};
     $("#pager").pager({
         pagenumber: pagenumber,
         pagecount: data.pagecount,
