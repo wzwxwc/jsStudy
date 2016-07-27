@@ -1,44 +1,48 @@
 ﻿/*
-* jQuery pager plugin
-* Version 1.0 (12/22/2008)
-* @requires jQuery v1.2.6 or later
-*
-* Example at: http://jonpauldavies.github.com/JQuery/Pager/PagerDemo.html
-*
-* Copyright (c) 2008-2009 Jon Paul Davies
-* Dual licensed under the MIT and GPL licenses:
-* http://www.opensource.org/licenses/mit-license.php
-* http://www.gnu.org/licenses/gpl.html
-* 
-* Read the related blog post and contact the author at http://www.j-dee.com/2008/12/22/jquery-pager-plugin/
-*
-* This version is far from perfect and doesn't manage it's own state, therefore contributions are more than welcome!
-*
-* Usage: .pager({ pagenumber: 1, pagecount: 15, buttonClickCallback: PagerClickTest });
-*
-* Where pagenumber is the visible page number
-*       pagecount is the total number of pages to display
-*       buttonClickCallback is the method to fire when a pager button is clicked.
-*
-* buttonClickCallback signiture is PagerClickTest = function(pageclickednumber) 
-* Where pageclickednumber is the number of the page clicked in the control.
-*
-* The included Pager.CSS file is a dependancy but can obviously tweaked to your wishes
-* Tested in IE6 IE7 Firefox & Safari. Any browser strangeness, please report.
-*/
-(function($) {
+ * jQuery pager plugin
+ * Version 1.0 (12/22/2008)
+ * @requires jQuery v1.2.6 or later
+ *
+ * Example at: http://jonpauldavies.github.com/JQuery/Pager/PagerDemo.html
+ *
+ * Copyright (c) 2008-2009 Jon Paul Davies
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * Read the related blog post and contact the author at http://www.j-dee.com/2008/12/22/jquery-pager-plugin/
+ *
+ * This version is far from perfect and doesn't manage it's own state, therefore contributions are more than welcome!
+ *
+ * Usage: .pager({ pagenumber: 1, pagecount: 15, buttonClickCallback: PagerClickTest });
+ *
+ * Where pagenumber is the visible page number
+ *       pagecount is the total number of pages to display
+ *       buttonClickCallback is the method to fire when a pager button is clicked.
+ *
+ * buttonClickCallback signiture is PagerClickTest = function(pageclickednumber)
+ * Where pageclickednumber is the number of the page clicked in the control.
+ *
+ * The included Pager.CSS file is a dependancy but can obviously tweaked to your wishes
+ * Tested in IE6 IE7 Firefox & Safari. Any browser strangeness, please report.
+ */
+(function ($) {
 
-    $.fn.pager = function(options) {
+    $.fn.pager = function (options) {
 
         var opts = $.extend({}, $.fn.pager.defaults, options);
 
-        return this.each(function() {
+        return this.each(function () {
 
-        // empty out the destination element and then render out the pager with the supplied options
+            // empty out the destination element and then render out the pager with the supplied options
             $(this).empty().append(renderpager(parseInt(options.pagenumber), parseInt(options.pagecount), options.buttonClickCallback));
-            
+
             // specify correct cursor activity
-            $('.pages li').mouseover(function() { document.body.style.cursor = "pointer"; }).mouseout(function() { document.body.style.cursor = "auto"; });
+            $('.pages li').mouseover(function () {
+                document.body.style.cursor = "pointer";
+            }).mouseout(function () {
+                document.body.style.cursor = "auto";
+            });
         });
     };
 
@@ -53,17 +57,28 @@
 
         // pager currently only handles 10 viewable pages ( could be easily parameterized, maybe in next version ) so handle edge cases
         var startPoint = 1;
-        var endPoint = 9;
 
-        if (pagenumber > 4) {
-            startPoint = pagenumber - 4;
-            endPoint = pagenumber + 4;
+        var endPoint = 5;
+        if (pagenumber > 2) {
+            startPoint = pagenumber - 2;
+            endPoint = pagenumber + 2;
         }
-
         if (endPoint > pagecount) {
-            startPoint = pagecount - 8;
+            startPoint = pagecount - 4;
             endPoint = pagecount;
         }
+
+        // var endPoint = 9;
+        //
+        // if (pagenumber > 4) {
+        //     startPoint = pagenumber - 4;
+        //     endPoint = pagenumber + 4;
+        // }
+        //
+        // if (endPoint > pagecount) {
+        //     startPoint = pagecount - 8;
+        //     endPoint = pagecount;
+        // }
 
         if (startPoint < 1) {
             startPoint = 1;
@@ -74,7 +89,9 @@
 
             var currentButton = $('<li class="page-number">' + (page) + '</li>');
 
-            page == pagenumber ? currentButton.addClass('pgCurrent') : currentButton.click(function() { buttonClickCallback(this.firstChild.data); });
+            page == pagenumber ? currentButton.addClass('pgCurrent') : currentButton.click(function () {
+                buttonClickCallback(this.firstChild.data);
+            });
             currentButton.appendTo($pager);
         }
 
@@ -109,10 +126,14 @@
 
         // disable and 'grey' out buttons if not needed.
         if (buttonLabel == "首页" || buttonLabel == "上页") {
-            pagenumber <= 1 ? $Button.addClass('pgEmpty') : $Button.click(function() { buttonClickCallback(destPage); });
+            pagenumber <= 1 ? $Button.addClass('pgEmpty') : $Button.click(function () {
+                buttonClickCallback(destPage);
+            });
         }
         else {
-            pagenumber >= pagecount ? $Button.addClass('pgEmpty') : $Button.click(function() { buttonClickCallback(destPage); });
+            pagenumber >= pagecount ? $Button.addClass('pgEmpty') : $Button.click(function () {
+                buttonClickCallback(destPage);
+            });
         }
 
         return $Button;

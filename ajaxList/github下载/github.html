@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>github</title>
+    <link rel="stylesheet" href="css/pager.css">
+    <link rel="stylesheet" href="css/list.css">
+    <script src="../deps/jquery.js"></script>
+    <script src="jquery.pager.js"></script>
+    <script>
+
+
+        //pagenumber 为当前页码
+        //pagecount 为显示页数
+        //PageClick 为回调函数
+        //pageclickednumber 为点击页码
+        var rowCountPerPage = 3;
+        $(document).ready(function () {
+            fnGetData(1, rowCountPerPage, function (res) {
+                $("#pager").pager({
+                    pagenumber: 1,
+                    pagecount: Math.ceil(res.rowCount / rowCountPerPage),
+                    buttonClickCallback: PageClick
+                });
+                $("#result").html(fnCreateList(res.currentPageData, 1));
+            })
+        });
+
+        //递归的用法！
+        function PageClick(pageclickednumber) {
+            fnGetData(pageclickednumber, rowCountPerPage, function (res) {
+                $("#pager").pager({
+                    pagenumber: pageclickednumber,
+                    pagecount: Math.ceil(res.rowCount / rowCountPerPage),
+                    buttonClickCallback: PageClick
+                });
+                $("#result").html(fnCreateList(res.currentPageData, pageclickednumber));
+            })
+        }
+
+        //构造list
+        function fnCreateList(data, index) {
+            var listDiv = '<div class="onemaplistContainer"><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div></div>';
+            return listDiv;
+        }
+
+
+        //currentPageIndex——当前页码（从1开始计算）
+        //rowCountPerPage——每页的记录数
+        function fnGetData(currentPageIndex, rowCountPerPage, fnSucessCallback) {
+            $.ajax({
+                url: "../datas/data.json",
+                type: "post",
+                data: {
+                    currentPageNum: currentPageIndex,
+                    rowCount: rowCountPerPage
+                },
+                success: fnSucessCallback,
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<div id="result">Click the pager below.</div>
+<div id="pager"></div>
+</body>
+</html>
