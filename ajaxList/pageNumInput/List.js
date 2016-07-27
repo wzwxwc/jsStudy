@@ -32,7 +32,7 @@ define(["jquery", "jquerypage"], function ($) {
 
     var temp = function (jsonArgsUser) {
         /*
-         jsonArgs参数解释：
+         jsonArgsUser参数解释：
          strDivContainerId：承载list的div的id属性值——string类型（必填）
          rowCountPerPage：每页含有的记录数——number类型
          pageCountPerScreen：每屏显示的页数——number类型
@@ -44,7 +44,7 @@ define(["jquery", "jquerypage"], function ($) {
         }
         var jsonArgs = {
             rowCountPerPage: 13,
-            pageCountPerScreen: 15,
+            pageCountPerScreen: 5,
             fnCreateList: function (data, index) {
                 var listDiv = '<div class="onemaplistContainer"><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div><div><p>突发事件' + index + '</p><p>事故类型：煤矿瓦斯爆炸</p><p>事发时间：2016-07-12 09:33</p></div></div>';
                 return listDiv;

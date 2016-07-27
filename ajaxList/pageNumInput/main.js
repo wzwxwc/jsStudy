@@ -20,7 +20,7 @@ require(["list"], function (List) {
     var jsonArgs = {
         strDivContainerId: "listContainer",
         rowCountPerPage: 3,
-        pageCountPerScreen: 5,
+        // pageCountPerScreen: 5,
         urlData: '../datas/data.json',
         isShowNumInput: false
     }
