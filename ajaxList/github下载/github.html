@@ -8,13 +8,13 @@
     <script src="../deps/jquery.js"></script>
     <script src="jquery.pager.js"></script>
     <script>
-
+        var rowCountPerPage = 3;    //每页含有的记录数
+        var pageCountPerScreen = 5;   //每屏显示的页数
 
         //pagenumber 为当前页码
         //pagecount 为显示页数
         //PageClick 为回调函数
         //pageclickednumber 为点击页码
-        var rowCountPerPage = 3;
         $(document).ready(function () {
             fnGetData(1, rowCountPerPage, function (res) {
                 $("#pager").pager({
