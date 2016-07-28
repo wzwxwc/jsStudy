@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奇怪的this</title>
+    <script>
+        function fnTest() {
+            this.mIn = function () {
+                console.log("this属性");
+            }
+        }
+
+        fnTest.prototype.mPr = function () {
+            console.log("prototype扩展");
+        }
+
+        var test = new fnTest();
+        test.mIn();
+        test.mPr();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

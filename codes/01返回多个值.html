@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回多个值</title>
+    <script>
+        function MyFunc(value1, value2, value3) {
+            //do stuff
+            value2 = "return values 222";
+            value3 = "return values 333";
+
+        }
+
+        var a = 5, b = 4;
+        MyFunc(1, a, b)
+        console.log(a);
+        console.log(b);
+
+        var c = {}, d = [];
+        MyFunc(1, c, d);
+        console.log(c);
+        console.log(d);
+    </script>
+</head>
+<body>
+本来想返回多个值 <br>
+用上述的方式，显然是失败的！ <br>
+在JS中，都是“按值传递” <br>
+而 <strong>不是</strong>“按引用传递” <br>
+参考：<a href="http://stackoverflow.com/questions/5887386/how-to-return-values-in-javascript">http://stackoverflow.com/questions/5887386/how-to-return-values-in-javascript</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var fn = function () {
+            this.k = 1;
+            var privateFun = function () {
+            };
+            return {
+                publicFun: function () {
+                    privateFun();
+                }
+            };
+        }
+        fn.prototype = {
+            j: 0
+        };
+        var fntest1 = new fn();
+        var fntest2 = fn();
+
+        // alert(fntest1);alert(fntest2); 监视时只会看到方法（publicFun），不会看到方法（privateFun）
+        //
+
+        var c = 1;
+    </script>
+</head>
+<body>
+
+</body>
+</html>

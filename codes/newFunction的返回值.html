@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new function的返回值</title>
+    <script>
+        function fnTest() {
+            this.name = "zc";
+            return "hehe";
+        }
+
+        function fnTest2() {
+            this.name = "lt";
+            return {
+                a: 4
+            };
+        }
+
+        var test = new fnTest();
+        var test2 = new fnTest2();
+
+        console.log(test);
+        console.log(test2);
+
+    </script>
+</head>
+<body>
+实验的结论很明显，如果function的返回值是对象的话则返回该对象，否则返回function的实例
+</body>
+</html>
