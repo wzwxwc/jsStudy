@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+    <script>
+        var fn = function () {
+            var a = 1;
+            var b = 2;
+            this.printIn = function () {
+                console.log(a);
+                console.log(b);
+            }
+        }
+        //如果使用prototype的方式，如何访问到上面内部定义的a、b
+        fn.prototype.printOut = function () {
+            console.log(this.a);
+            console.log(this.b);
+        }
+
+        var o = new fn();
+        o.printIn();
+        o.printOut();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

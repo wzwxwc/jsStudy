@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04函数的name属性</title>
+    <script>
+        var fn1 = function () {
+
+        }
+        function fn2() {
+
+        }
+        var fn3 = fn1;
+        var fn4 = fn2;
+
+        console.log(fn1.name);
+        console.log(fn2.name);
+        console.log(fn3.name);  //这个结果竟然是fn1
+        console.log(fn4.name);  //返回fn2
+
+    </script>
+</head>
+<body>
+浏览器默认都有一个非标准的name属性 <br>
+通过这个属性可以访问到给函数指定的名字！<br>
+这个name感觉和prototype有点关系了！ <br>
+但是，这个浏览器兼容性很差。
+IE11不支持
+chrome支持
+Firefox只支持fn2的方式！对fn1不支持！
+
+
+</body>
+</html>

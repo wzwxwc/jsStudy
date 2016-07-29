@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归的问题</title>
+    <script>
+        //factorial     [fæk'tɔːrɪəl]       阶乘
+        function factorial(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                return factorial(num - 1) * num;
+            }
+        }
+
+        console.log(factorial(3));
+
+        //如果使用自身函数名的方式来进行递归，就会产生这样的错误！
+        //        var fntest = factorial;
+        //        factorial = null;
+        //        console.log(fntest(3));
+
+        //解决方法1     arguments.callee 代替函数名
+        //解决方法2     命名函数表达式？
+        //        如果你想在函数体内部引用当前函数，则需要创建一个命名函数表达式。
+        //        然后函数名称将会（且只会）作为函数体（作用域内）的本地变量。这样也可以避免使用非标准的 arguments.callee 属性。
+        //        参考：
+        //        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/function
+        var test2 = (function f(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                return f(num - 1) * num;
+            }
+        });
+        console.log("方法2的结果：" + test2(3));
+        console.log(f);
+
+        //解决方法3     this——失败！
+        function fnMethod3(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                //报错：“this is not a function”
+                //this是关键词，不能被当做函数来使用！
+                return this(num - 1) * num;
+            }
+        }
+        console.log(fnMethod3(3));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
