@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json筛选</title>
+    <script>
+        var dataArray = [
+            {x: "aaaa", y: "bbbb"},
+            {x: "abcde", y: "cdefg"},
+            {x: "123abc", y: "456cde"}
+        ];
+
+
+        /**
+         * 对一个数组进行关键字查找
+         * @param sourceRowArray    原始数组
+         * @param keyWord           关键字
+         * @param fieldArraySearched    搜索的字段集合
+         * @returns {Array}
+         */
+        function fnFilterArray(sourceRowArray, keyWord, fieldArraySearched) {
+            var result = [];
+            for (var i = 0; i < sourceRowArray.length; i++) {
+                var row = sourceRowArray[i];
+                for (var j = 0; j < fieldArraySearched.length; j++) {
+                    if (row[fieldArraySearched[j]] && row[fieldArraySearched[j]].toString().indexOf(keyWord) >= 0) {
+                        result.push(row);
+                        continue;
+                    }
+                }
+            }
+            return result;
+        }
+
+        var test = fnFilterArray(dataArray, 'a', ["y", "x"]);
+        console.log(test);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
