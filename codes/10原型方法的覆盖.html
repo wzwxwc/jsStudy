@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10原型方法的覆盖</title>
+    <script>
+        var myFunc = function () {
+
+        }
+        myFunc.prototype.f1 = function () {
+            console.log("f1")
+        }
+        myFunc.prototype = {
+            f1: function () {
+                console.log("f1 by json")
+            }
+        }
+        var test = new myFunc();
+        test.f1();
+    </script>
+</head>
+<body>
+如果名字相同，会被覆盖！
+感觉这不是废话吗？
+</body>
+</html>

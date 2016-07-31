@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型方法的覆盖2</title>
+    <script>
+        var Fun = function () {
+        };
+        Fun.prototype.f1 = function () {
+            console.log("f1")
+        };
+        //下面这种方式，直接覆盖了上面给原型增加的方法！！
+        //不过，如果f1的方法放到json原型赋值的后面，就不会被覆盖！！
+        Fun.prototype = {
+            f2: function () {
+                console.log("f2")
+            },
+            f3: function () {
+                console.log("f3");
+            }
+        };
+
+        var test = new Fun();
+        test.f1();
+    </script>
+</head>
+<body>
+json原型的赋值方式
+直接会覆盖所之前的所有原型方法！！
+</body>
+</html>
