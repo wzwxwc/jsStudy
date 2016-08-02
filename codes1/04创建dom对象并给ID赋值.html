@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04创建dom对象并给ID赋值</title>
+    <style>
+        div {
+            width: 130px;
+            height: 130px;
+            background-color: green;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            fn1();
+            fn2();
+        }
+
+        function fn1() {
+            var div = document.createElement("div");
+            //下述div是一个对象！那么它是由哪个类创建的？
+            div.id = "fn1";
+            document.body.appendChild(div);
+        }
+
+        function fn2() {
+            var div = document.createElement("div");
+            div.setAttribute("id", "fn2");
+            document.body.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+用js创建一个dom对象，并给他的id属性赋值！
+上述2种方法都没有问题！
+那么，他们的兼容性分别怎么样？
+
+
+</body>
+</html>

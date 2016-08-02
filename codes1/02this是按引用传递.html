@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this是按引用传递</title>
+    <script>
+        function fn() {
+            //下述这个是按引用传递的！
+            var self = this;
+            var a = 1;
+            //按值传递
+            this.a = a;
+            a = "a changed";
+            this.b = "2";
+            var c = {
+                c1: 3,
+                c2: "4"
+            };
+            //下述这个也是按引用传递的
+            this.c = c;
+            c.c1 = "c1 changed";
+            this.print = function () {
+                console.log(self.a);
+                console.log(self.b);
+                console.log(self.c.c1);
+            }
+        }
+
+        var test = new fn();
+        test.print();
+    </script>
+</head>
+<body>
+好像只要是对象，都是按照引用来传递的
+而值的话，都是按值传递
+引入了“按共享传递”
+http://www.jb51.net/article/60568.htm
+kao
+
+</body>
+</html>

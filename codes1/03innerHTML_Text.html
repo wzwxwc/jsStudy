@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inner HTML Text</title>
+    <script>
+        window.onload = function () {
+            var test = document.getElementById("test");
+//            test.innerHTML="<a href='http://www.test.com'>hehe</a>"
+            test.innerText = "<a href='http://www.test.com'>hehe</a>"
+        }
+    </script>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<label for="">
+    innerText直接把html标签当做“文本”来处理！
+    但是F12看到的都是可以解析的效果啊！！
+
+</label>
+</html>
