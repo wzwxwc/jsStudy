@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08dom对象的自定义属性是否可以持久化</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var div = document.createElement("div");
+            div.id = "divTest"
+            div.data_json = {
+                name: "zc",
+                age: 20
+            }
+            div.onclick = function () {
+                console.log(this.data_json.name);
+            }
+            window.document.body.appendChild(div);
+            //一旦html化之后，再次得到的dom对象，已经没有当时的自定义属性了？
+            var btnTest = document.getElementById("btnTest")
+            btnTest.onclick = function () {
+                var div = document.getElementById("divTest");
+                console.log(div.data_json.name);
+            }
+        }
+    </script>
+</head>
+<body>
+我想验证一下 <br>
+dom对象的自定义属性，在html化后 <br>
+再次从html中得到这个dom对象的时候，自定义属性是否还是存在？ <br>
+<h2>存在！</h2>
+<button id="btnTest">click me</button>
+</body>
+</html>

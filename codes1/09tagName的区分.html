@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tagName的区分</title>
+    <script>
+        window.onload = function () {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                console.log(inputs[i].tagName);
+                console.log(inputs[i].type);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+<input type="button" value="hehe">
+<input type="password">
+<input type="submit">
+</body>
+</html>
