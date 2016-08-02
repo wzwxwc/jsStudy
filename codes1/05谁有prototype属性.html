@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05谁有prototype属性</title>
+    <script>
+        //没有
+        var a = {};
+        console.log(a.prototype);
+
+        //有————看来，只有function有prototype属性！
+        var b = function () {
+        }
+        console.log(b.prototype);
+
+        //没有
+        var c = new b();
+        console.log(c.prototype);
+
+    </script>
+</head>
+<body>
+我想看看，到底哪些js变量类型
+有prototype属性？
+</body>
+</html>

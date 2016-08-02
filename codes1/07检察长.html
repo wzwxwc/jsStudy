@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07检察长</title>
+    <script>
+        var Book = function (title, time, type) {
+            this.title = title;
+            this.time = time;
+            this.type = type;
+            return this;
+        }
+        var book = new Book("三国", "1998", "文学名著");
+        console.log(book.title);
+
+        //下述的book2是window对象，没有达到得到book对象的目的
+        var book2 = Book("三国", "1998", "文学名著");
+        console.log(book2.title);
+
+
+        //上面有错，下面是无法继续执行的，谁说的js可以不顾错误，继续执行的？
+        //shit！
+    </script>
+</head>
+<body>
+
+</body>
+</html>

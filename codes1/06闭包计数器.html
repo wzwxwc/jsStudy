@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包计数器</title>
+    <script>
+        var Book = (function () {
+            var count = 0;
+            var temp = function () {
+//                count++;
+//                js中有count--吗？
+                console.log(count++);
+            }
+            return temp;
+        })();
+
+        Book.prototype.print = function () {
+            console.log(this.count);
+        }
+        
+        for (var i = 0; i < 5; i++) {
+            new Book().print();
+        }
+
+        //看来这个不支持声明前移！
+        //        Book.prototype.print = function () {
+        //            console.log(this.count);
+        //        }
+    </script>
+</head>
+<body>
+竟然确实可以计数！
+靠！
+</body>
+</html>
