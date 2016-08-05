@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一个div能被放到多处吗</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var button = document.createElement("button");
+            button.innerText = "click me";
+            var divArray = document.getElementsByTagName("div");
+            for (var i = 0; i < divArray.length; i++) {
+                var div = divArray[i];
+                div.appendChild(button);
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<!--
+对于create的一个html控件
+如果被多次appendChild
+只能被最后一个添加！！
+-->

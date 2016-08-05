@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery多次添加同一个</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script src="../deps/jquery.js"></script>
+    <script>
+        $(function () {
+            fn2();
+        });
+
+        function fn1() {
+            $('div').append($('<button>jquery append jquery</button>'));
+        }
+
+        function fn2() {
+            var button = document.createElement("button");
+            button.innerText = "jquery append dom";
+            $('div').append(button);
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
+<!--
+jquery的append()方法可以每个都添加一个，真不错
+-->
