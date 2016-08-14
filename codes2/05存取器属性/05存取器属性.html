@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05存取器属性</title>
+    <script>
+        var p = {
+            x: 1,
+            y: 1,
+            get r() {
+                return this.x * this.x + this.y * this.y
+            },
+            set r(newvalue) {
+                var oldvalue = this.r();
+                var ratio = newvalue / oldvalue;
+                this.x = ratio;
+                this.y = ratio;
+            },
+            get theta(){
+                return Math.atan2(this.y,this.x);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
