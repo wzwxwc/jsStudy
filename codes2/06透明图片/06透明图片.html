@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06透明图片</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        img{
+            border:2px solid #0b97c4;
+        }
+    </style>
+    <script src="../../deps/jquery.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                var colorName = $(this).text();
+                $("body").css("background-color", colorName);
+            });
+        });
+    </script>
+</head>
+<body>
+<img src="./img/transparency.png" alt="">
+<br>
+<button>red</button>
+<button>green</button>
+<button>blue</button>
+</body>
+</html>
