@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01数组赋值后的对象</title>
+    <script>
+        var a = "123"
+        var b = {
+            a: 1,
+            b: "123"
+        }
+
+        console.log("a is " + a);
+        console.log("b is " + b);
+
+        var test = {}
+        //        test["p1"] = a;
+        //        test["p2"] = b;
+
+        test.p1 = a;
+        test.p2 = b;
+
+        console.log("test.p1 is " + test.p1);
+        console.log("test.p2 is " + test.p2);
+
+        //        a = null;
+        //        b = null;
+        //        console.log("a is " + a);
+        //        console.log("b is " + b);
+
+        console.log("test.p1 is " + test.p1);
+        console.log("test.p2 is " + test.p2);
+
+        test.p1 = null;
+        test.p2 = null;
+
+        console.log("a is " + a);
+        console.log("b is " + b);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
