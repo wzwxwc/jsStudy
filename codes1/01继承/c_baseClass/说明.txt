@@ -1,0 +1,3 @@
+Base.js来源于
+http://dean.edwards.name/weblog/2006/03/base/
+这个大牛的blog
