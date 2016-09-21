@@ -1,0 +1,58 @@
+[
+  {
+    "id": 878,
+    "url": "channel.jd.com/jiazhuang.html",
+    "startOn": 1473955200000,
+    "endOn": 1474473600000,
+    "percent": "100",
+    "skus": []
+  },
+  {
+    "id": 879,
+    "url": "channel.jd.com/furniture.html",
+    "startOn": 1474041600000,
+    "endOn": 1474560000000,
+    "percent": "100",
+    "skus": []
+  },
+  {
+    "id": 888,
+    "url": "jiadian.jd.com",
+    "startOn": 1474300800000,
+    "endOn": 1474819200000,
+    "percent": "100",
+    "skus": []
+  },
+  {
+    "id": 889,
+    "url": "www.jd.com",
+    "startOn": 1474387200000,
+    "endOn": 1474905600000,
+    "percent": "20",
+    "skus": []
+  },
+  {
+    "id": 890,
+    "url": "wqs.jd.com/portal/wx/portal_indexV4.shtml",
+    "startOn": 1474387200000,
+    "endOn": 1474905600000,
+    "percent": "20",
+    "skus": []
+  },
+  {
+    "id": 891,
+    "url": "wqs.jd.com/portal/sq/portal_index2.shtml",
+    "startOn": 1474387200000,
+    "endOn": 1474905600000,
+    "percent": "20",
+    "skus": []
+  },
+  {
+    "id": 892,
+    "url": "quant.jd.com",
+    "startOn": 1474387200000,
+    "endOn": 1474905600000,
+    "percent": "100",
+    "skus": []
+  }
+]

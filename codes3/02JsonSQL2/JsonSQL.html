@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+		<script type="text/javascript" src="jquery-1.2.1.pack.js"></script>
+		<script type="text/javascript" src="dump.js"></script>
+		<script type="text/javascript" src="jsonsql-0.1.js"></script>
+		<script type="text/javascript">
+			function getAll(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select * from json.channel.items order by title desc,json",json));
+				});
+			}
+
+           function getFiltered(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select title,url,author,category from json.channel.items where (category=='javascript' || author=='trent') order by title,category asc limit 3",json));
+				});
+			}
+
+			function getLimit(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select url from json.channel.items where (category=='javascript' && author=='trent') order by url asc limit 1,2",json));
+				});
+			}
+		</script>
+ </HEAD>
+ <BODY>	
+		<p><b>运行示例：</b></p>
+		<hr/>
+		<p>语句1： jsonsql.query("select * from json.channel.items order by title desc",json);</p>
+        <button name="btn1" id="btn1"  onclick="getAll();">获取全部数据</button>
+		<hr/>
+		<p>语句2： jsonsql.query("select title,url from json.channel.items where (category=='javascript' || category=='vista') order by title,category asc limit 3",json);
+		</p>
+		<button name="btn2" id="btn2" onclick="getFiltered();">获取过滤数据</button>
+		<hr/>
+		<p>语句3：jsonsql.query("select url from json.channel.items where (category=='javascript' && author=='trent') order by url asc limit 1,2",json);
+		</p>
+		<button name="btn3" id="btn3"  onclick="getLimit();">获取限定数量的数据</button>
+		<hr/>
+		<p><b>参数详解：</b></p>
+		<p>只支持 Select 查询语句，“JSON”：“json.channel.items”指向一个对象数组,
+		排序接受参数：asc,desc,ascnum,descnum，
+		limit：接受1，或2个参数，指定要获取数据数量个数。
+		</P>
+		<pre>
+		调用JS方法:
+
+			function getAll(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select * from json.channel.items order by title desc,json",json));
+				});
+			}
+
+			function getFiltered(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select title,url,author,category from json.channel.items where (category=='javascript' || author=='trent') order by title,category asc limit 3",json));
+				});
+			}
+
+			function getLimit(){
+				$.getJSON("testjson.js", function(json){
+					dump(jsonsql.query("select url from json.channel.items where (category=='javascript' && author=='trent') order by url asc limit 1,2",json));
+				});
+			}
+		
+		调用外部JS文件：
+		<\script type="text/javascript" src="jquery-1.2.1.pack.js"><\/script>
+		<\script type="text/javascript" src="dump.js"><\/script>:输出文件样式文件
+		<\script type="text/javascript" src="jsonsql-0.1.js"><\/script>
+		</pre>
+		
+		<p>取得数据效果图：</p>
+		<img src="jsonsql.png"/>
+ </BODY>
+</HTML>
