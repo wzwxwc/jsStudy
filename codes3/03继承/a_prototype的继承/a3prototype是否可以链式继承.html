@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a3prototype是否可以链式继承</title>
+    <script>
+        function A() {
+            print:function () {
+                console.log("A is used");
+            }
+        }
+
+        function B() {
+            print:function  {
+                console.log("B is used");
+            }
+        }
+
+        function C() {
+            print:function () {
+                console.log("C is used");
+            }
+        }
+
+
+        function fnTest1() {
+            C.prototype.parent = B;
+            B.prototype.parent = A;
+            console.log(C.prototype.parent.prototype.parent.print())
+        }
+
+        function fnTest2() {
+            //我想知道
+            C.prototype = B;
+            B.prototype = A;
+            console.log(C.prototype.prototype.print());
+        }
+
+    </script>
+</head>
+<body>
+本来想：
+上述有A、B、C三个function
+C的父类是B、B的父类是A（通过prototype的方式来实现）
+但是，prototype的值只能是一个“对象”！
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a_prototype的继承</title>
+    <script>
+        function Dog(name) {
+            this.name = name;
+        }
+
+        // Dog.prototype = {
+        //     species: '犬科'
+        // };
+        //为什么下述的dogA.construct得不到Dog？
+        //因为上述修改了Dog的prototype属性
+        var dogA = new Dog("大毛");
+        console.log(dogA.constructor)
+        var dogB = new Dog("二毛");
+
+        fnPrint();
+        dogA.species = "鸟类";
+        fnPrint();
+        //注意：
+        //下述报错
+        //只有Function类型的变量，才有prototype属性
+        //通过typeof方法，来检测
+        // dogA只是一个object对象
+        //Dog是一个function
+        dogA.prototype.species = "猫类";
+        fnPrint();
+
+        function fnPrint() {
+            console.log("dogA.species is" + dogA.species);
+            console.log("dogB.species is" + dogB.species);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
