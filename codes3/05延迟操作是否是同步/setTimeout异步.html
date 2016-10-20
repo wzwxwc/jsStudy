@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout是异步执行</title>
+    <script>
+        alert("开始了");
+        //下述这个是异步执行
+        setTimeout(function () {
+            alert("执行了setTimeout")
+        }, 3000);
+        alert("结束了");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
