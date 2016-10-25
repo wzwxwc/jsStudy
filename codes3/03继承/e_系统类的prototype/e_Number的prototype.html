@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>e_Number的prototype.html</title>
+    <script>
+        var a = 12;
+        console.log(a.prototype);       //返回undefined
+        console.log(a.test);            //返回undefined
+
+        var b = new Number(12);
+        //“Number类”有prototype，不代表“Number实例”也有prototype！
+        console.log(b.prototype);   //返回undefined
+        console.log(b.test);        //返回undefined
+
+        console.log(Number.prototype);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

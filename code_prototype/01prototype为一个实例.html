@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01prototype为一个实例</title>
+    <script>
+        function A() {
+            this.aM1 = function () {
+                console.log("aM1");
+            };
+            this.aM2 = function () {
+                console.log("aM2");
+            }
+        }
+
+        function B() {
+            this.bM1 = function () {
+                console.log("bM1");
+            }
+        }
+
+        B.prototype = A;
+        var b = new B();
+        b.bM1();
+        b.aM1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

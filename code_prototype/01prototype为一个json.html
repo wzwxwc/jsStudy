@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01clone全部属性</title>
+    <script>
+        var a = {
+            aM1: function () {
+                console.log("aM1");
+            },
+            aM2: function () {
+                console.log("aM2");
+            }
+        }
+
+        var b = {
+            bM1: function () {
+                console.log("bM1");
+            }
+        }
+
+        b.prototype = a;
+
+        console.log(b.bM1());   //ok
+        console.log(b.aM1());   //bad
+        console.log(b.prototype.aM1());  //ok
+
+        console.log(b.aM2());   //bad
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

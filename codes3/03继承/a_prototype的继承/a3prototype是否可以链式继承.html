@@ -5,19 +5,19 @@
     <title>a3prototype是否可以链式继承</title>
     <script>
         function A() {
-            print:function () {
+            this.print = function () {
                 console.log("A is used");
             }
         }
 
         function B() {
-            print:function  {
+            this.print = function () {
                 console.log("B is used");
             }
         }
 
         function C() {
-            print:function () {
+            this.print = function () {
                 console.log("C is used");
             }
         }
@@ -35,6 +35,9 @@
             B.prototype = A;
             console.log(C.prototype.prototype.print());
         }
+
+        //        fnTest1();
+        fnTest2();
 
     </script>
 </head>
