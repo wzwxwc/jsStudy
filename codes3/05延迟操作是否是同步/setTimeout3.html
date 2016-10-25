@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout</title>
+    <script src="../../deps/jquery.js"></script>
+    <script>
+        var log = function (msg) {
+            window.console && console.log(msg)
+        }
+        function asyncThing1() {
+            setTimeout(function () {
+                log('asyncThing1 seems to be done...');
+                return '1111';
+            }, 9000);
+        }
+        function asyncThing2() {
+            setTimeout(function () {
+                log('asyncThing2 seems to be done...');
+                return '222';
+            }, 8000);
+        }
+        function asyncThing3() {
+            setTimeout(function () {
+                log('asyncThing3 seems to be done...');
+                return '333';
+            }, 12000);
+        }
+        /* do it */
+        $.when(asyncThing1(), asyncThing2(), asyncThing3()).done(function (res1, res2, res3) {
+            log('all done!');
+            log(res1 + ', ' + res2 + ', ' + res3);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
