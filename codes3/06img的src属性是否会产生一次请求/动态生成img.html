@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成img</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            content: url("img/rabit.jpg");
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //即使是后加的html元素，css也是会起作用的！
+            for (var i = 0; i < 3; i++) {
+                var img = document.createElement("img");
+                document.body.appendChild(img)
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
