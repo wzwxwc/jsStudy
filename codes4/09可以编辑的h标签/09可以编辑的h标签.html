@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09可以编辑的h标签</title>
+    <style>
+        h3 {
+            display: block;
+        }
+
+        /*解决有焦点的时候，出现外边框的问题*/
+        h3:focus {
+            outline: 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3 contenteditable="true">H标签可以被编辑</h3>
+</div>
+
+</body>
+</html>
