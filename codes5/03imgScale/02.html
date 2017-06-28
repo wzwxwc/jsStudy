@@ -15,15 +15,22 @@
             background-position: center center;
         }
 
-        div:hover {
+        /*div:hover {
             background-size: 150% 150%;
-        }
+        }*/
     </style>
     <script>
         window.onload = function () {
             var div = document.querySelector("div");
             div.onmousewheel = function (args) {
-                console.log(event.wheelDelta);
+                console.log(args.wheelDelta);
+                if (event.wheelDelta > 0) {
+                    //放大
+                    this.setAttribute("background-size", "150% 150%");
+                } else {
+                    //缩小
+                    this.setAttribute("background-size", "50% 50%");
+                }
             }
         }
     </script>
