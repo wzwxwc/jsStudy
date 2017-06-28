@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>四路视频</title>
+<style>
+.container, .container * { padding: 0; margin: 0; line-height: 0; }
+.cell>div { width: 200px; height: 200px;  }
+.container {
+    display: flex;
+    flex-flow: column;
+}
+.container>div {
+    display: flex;
+    margin: 0px 0;
+    
+}
+.cell>div {
+    margin: 0 5px;
+    padding:0px;
+    
+}
+.video{
+    height:400px;
+    width:400px;
+    margin:0px;
+    padding:0px;
+    
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <div class="cell no1">
+            <div>
+            <video class="video" src="./patrolMonitroVideo.mp4"  autoplay ="true">            
+            </video>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>
