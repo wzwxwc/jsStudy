@@ -1,7 +1,11 @@
 网页参考：
 http://sc.chinaz.com/jiaoben/150302414170.htm
 http://sc.chinaz.com/jiaobendemo.aspx?downloadid=201525741371
+https://github.com/e-smartdev/smartJQueryZoom
 这个满足需求
+
+http://www.starplugins.com/starzoom
+移动和缩放
 
 
 这个稍加改动也可以
