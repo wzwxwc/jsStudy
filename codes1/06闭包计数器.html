@@ -5,19 +5,21 @@
     <title>闭包计数器</title>
     <script>
         var Book = (function () {
-            var count = 0;
+            var countOut = 0;
             var temp = function () {
+                var countIn = 0;
 //                count++;
-//                js中有count--吗？
-                console.log(count++);
-            }
+//                js中有count--吗？回答：有
+                console.log(countOut++);
+                console.log(countIn++);
+            };
             return temp;
         })();
 
         Book.prototype.print = function () {
             console.log(this.count);
-        }
-        
+        };
+
         for (var i = 0; i < 5; i++) {
             new Book().print();
         }
