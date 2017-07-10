@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var promise = new Promise(function (resolve) {
+            console.log("resolve被执行");
+            resolve("zc", "你好");
+        });
+        console.log("执行promise之前");
+        promise.then(function (name, value) {
+            console.log(name + ":" + value);
+        }).catch(function (err) {
+            console.log(err);
+        });
+        console.log("执行promise之后");
+    </script>
+</head>
+<body>
+上面这个执行顺序，我不是很能理解
+为什么resolve上面的那句代码被先执行？
+</body>
+</html>
