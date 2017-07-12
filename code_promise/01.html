@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>01</title>
     <script>
-        var promise = new Promise(function (resolve) {
+        var promise = new Promise(function (aa) {
+            //构造函数内的是“立即执行”的
             console.log("resolve被执行");
-            resolve("zc", "你好");
+            //下述resolve内部对应的是异步执行！
+            aa("zc", "你好");
         });
         console.log("执行promise之前");
         promise.then(function (name, value) {
             console.log(name + ":" + value);
+        }).then(function (data) {
+            //为什么第2个then中的回调函数中的data是undefined呢？
+            console.log(data);
         }).catch(function (err) {
             console.log(err);
         });

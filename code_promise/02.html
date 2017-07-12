@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>02</title>
     <script>
         function asyncFunction() {
             return new Promise(function (resolve, reject) {
+                console.log("执行了new promise方法");
                 setTimeout(function () {
+                    console.log("执行了promise构造函数");
                     reject('Async Hello world');
                 }, 1600);
             });
         }
+        console.log("执行promise前");
         asyncFunction().then(function (value) {
+            console.log("执行了then方法");
             console.log(value);    // => 'Async Hello world'
         }).catch(function (error) {
+            console.log("执行了error方法");
             console.log(error);
         });
+        console.log("执行promise后");
     </script>
 </head>
 <body>
