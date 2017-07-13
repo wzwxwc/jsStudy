@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02只有function可以用</title>
+    <script>
+        var obj = new Object(); // not a functional object
+        // this is wrong!
+//        obj.prototype.test = function () {
+//            alert('Hello?');
+//        };
+
+        function MyObject() {
+        } // a first class functional object
+        console.log();
+        MyObject.prototype.test = function () {
+            alert('OK');
+        } // OK
+    </script>
+</head>
+<body>
+
+</body>
+</html>

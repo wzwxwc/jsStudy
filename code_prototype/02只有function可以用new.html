@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02只有function可以用new</title>
+    <script>
+        var obj = {}
+        //下述报错
+        //Uncaught TypeError: obj is not a constructor
+        //js中是怎么判断一个对象是否是一个constructor？？
+        //var a = new obj();
+
+        function ff() {
+        }
+        var b = new ff();
+        console.log("end");
+    </script>
+</head>
+<body>
+JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象
+凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。
+</body>
+</html>
