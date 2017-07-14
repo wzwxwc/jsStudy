@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>03prototype属性和this属性的区别</title>
     <script>
-        function employee(name, job, born) {
+        function Employee(name, job, born) {
             this.name = name;
             this.job = job;
             this.born = born;
         }
-        var bill = new employee("Bill Gates", "Engineer", 1985);
-        employee.prototype.salary = 999;
+        var bill = new Employee("Bill Gates", "Engineer", 1985);
+        Employee.prototype.salary = 999;
         bill.salary = 20000;
         bill.born = 1987;
         document.writeln(JSON.stringify(bill));
 
         document.writeln("<br/>");
-        var tom = new employee("Tom", "saler", 1990);
+        var tom = new Employee("Tom", "saler", 1990);
         document.writeln(JSON.stringify(tom));
     </script>
 </head>

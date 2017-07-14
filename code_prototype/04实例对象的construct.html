@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>04看看new对象的construct</title>
     <script>
+        function Dog() {
+        }
+
         function Person(name, age, job) {
             this.name = name;
             this.age = age;
@@ -12,12 +15,14 @@
                 alert(this.name)
             }
         }
-        var person1 = new Person('Zaxlct', 28, 'Software Engineer');
-        var person2 = new Person('Mick', 23, 'Doctor');
+        var p1 = new Person('Zaxlct', 28, 'Software Engineer');
+        var p2 = new Person('Mick', 23, 'Doctor');
         console.log();
     </script>
 </head>
 <body>
-
+上面的例子中 person1 和 person2 都是 Person 的实例。
+这两个实例都有一个 constructor （构造函数）属性，
+该属性（是一个指针）指向 Person。
 </body>
 </html>

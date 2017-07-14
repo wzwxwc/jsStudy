@@ -11,14 +11,15 @@
             aM2: function () {
                 console.log("aM2");
             }
-        }
+        };
 
         var b = {
             bM1: function () {
                 console.log("bM1");
             }
-        }
+        };
 
+        //b是一个普通对象，不会“自带”prototype属性
         b.prototype = a;
 
         console.log(b.bM1());   //ok

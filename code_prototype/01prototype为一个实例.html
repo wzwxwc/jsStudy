@@ -19,10 +19,31 @@
             }
         }
 
-        B.prototype = A;
-        var b = new B();
-        b.bM1();
-        b.aM1();
+        //错误示范
+        function test1() {
+            //“原型对象”已经很清楚的说明了是一个“对象”！而且是一个普通对象
+            //“原型普通对象”这个名字更合适！
+            B.prototype = A;
+            var b = new B();
+            b.bM1();
+            //下属2个方法都是无法访问的！
+            b.aM1();
+            b.aM2();
+        }
+
+
+        function test2() {
+            //b instanceof B 结果：true
+            //b instanceof A 结果：true
+            B.prototype = new A();
+            var b = new B();
+            b.bM1();
+            //下属2个方法都是无法访问的！
+            b.aM1();
+            b.aM2();
+        }
+        test2();
+
     </script>
 </head>
 <body>
