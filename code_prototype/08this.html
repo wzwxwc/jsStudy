@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08this</title>
+    <script>
+        function Person(name, age) {
+            //下述的this是指调用Person函数的对象！
+            this.name = name;
+            this.age = age;
+        }
+
+        var p1 = new Person("zc", 30);
+        //下述因为是window调用，所以下述Person中的this是指向window
+        var p2 = Person("lt", 28);
+        console.log();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09构造函数</title>
+    <script>
+        var b = new Array();
+        console.log(b.constructor === Array);
+        console.log(b.__proto__ === Array.prototype);
+
+        var c = new Date();
+        console.log(c.constructor === Date);
+        console.log(c.__proto__ === Date.prototype);
+
+        var d = new Function();
+        console.log(d.constructor === Function);
+        console.log(d.__proto__ === Function.prototype);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
