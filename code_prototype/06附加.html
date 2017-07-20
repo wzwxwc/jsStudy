@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06附加</title>
+    <script>
+        function Person() {
+        }
+        //注意：p3和下面的p1、p2的__prototype__的construct有所不同！
+        //或者直接看p3的construct与p1的construct之间的区别
+        var p3 = new Person();
+
+
+        Person.prototype.name = "Zaxlct";
+        Person.prototype.age = 28;
+        Person.prototype.job = 'Software Engineer';
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        };
+
+        var p1 = new Person();
+        p1.sayName(); // 'Zaxlct'
+
+        var p2 = new Person();
+        p2.sayName(); // 'Zaxlct'
+
+        //下述3个都为true
+        console.log(p3.__proto__ === Person.prototype);
+        console.log(p2.__proto__ === Person.prototype);
+        console.log(p1.__proto__ === Person.prototype);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

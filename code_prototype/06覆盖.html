@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06覆盖</title>
+    <script>
+        function Person() {
+        }
+        //注意：p3和下面的p1、p2的__prototype__的construct有所不同！
+        //或者直接看p3的construct与p1的construct之间的区别
+        var p3 = new Person();
+
+        var obj = {
+            name: "Zaxlct",
+            age: 28,
+            job: 'Software Engineer',
+            sayName: function () {
+                console.log(this.name);
+            }
+        };
+        Person.prototype = obj;
+
+        var p1 = new Person();
+        p1.sayName(); // 'Zaxlct'
+
+        var p2 = new Person();
+        p2.sayName(); // 'Zaxlct'
+
+        //下述结果为false，因为p3在声明之后，Person.prototype遭到了覆盖！
+        //彻底把Person.prototype给改写了，所以导致下述为false
+        console.log(p3.__proto__ === Person.prototype);
+        //下述2个位true
+        console.log(p2.__proto__ === Person.prototype);
+        console.log(p1.__proto__ === Person.prototype);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

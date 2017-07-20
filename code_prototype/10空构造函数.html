@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10空构造函数</title>
+    <script>
+        function Person() {
+            //里面什么都没有
+            //但是依然可以作为构造函数
+            //而且构造函数new出的结果不为空
+        }
+        var p1 = new Person();
+        console.log(p1);
+        console.log(p1 == null);
+
+        var p2 = Person();
+        console.log(p2);
+        console.log(p2 == null);
+        console.log(p2 === null);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
