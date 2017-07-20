@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02关于相等的比较</title>
+    <script>
+        var p1 = {
+            name: "zc",
+            age: 20
+        };
+        var p2 = {
+            name: "zc",
+            age: 20
+        };
+
+        console.log(p1.name == p2.name);
+        console.log(p1.name === p2.name);
+
+        console.log(p1.age == p2.age);
+        console.log(p1.age === p2.age);
+
+        console.log(p1 == p2);
+        console.log(p1 === p2);
+    </script>
+</head>
+<body>
+基本类型string,number通过值来比较，
+而对象（Date,Array）及普通对象通过指针指向的内存中的地址来做比较。
+</body>
+</html>

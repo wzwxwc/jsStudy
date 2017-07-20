@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02原型链</title>
+    <script>
+        var Animal = function () {
+        };
+        var Dog = function () {
+        };
+
+        Animal.price = 2000;
+        //因为Dog.prototype这个对象中含有一些系统自带的一些属性和方法
+        //比如constructor
+//        Dog.prototype = Animal;
+        var tidy = new Dog();
+
+        console.log(Dog.price) //undefined
+        console.log(tidy.price) // 2000
+    </script>
+</head>
+<body>
+1、原型和原型链是JS实现继承的一种模型。
+2、原型链的形成是真正是靠__proto__，而非prototype
+</body>
+</html>
