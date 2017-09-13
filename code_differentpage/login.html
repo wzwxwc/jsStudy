@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="require.js"></script>
+    <script>
+        require(["./common"], function (common) {
+            alert(common.age);
+            common.age = 66;
+//            var objGis = window.open("./gis.html");
+//            common.gis = objGis;
+            var objMis = window.open("./mis.html");
+        });
+
+        function hehe() {
+            require(["./common"], function (common) {
+                alert(common.age);
+            });
+        }
+
+        //        window.localStorage.setItem("open", JSON.stringify(objGis));
+    </script>
+
+
+</head>
+<body>
+<button onclick="hehe()">click</button>
+</body>
+</html>

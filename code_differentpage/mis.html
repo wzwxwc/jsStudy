@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mis</title>
+    <script src="require.js"></script>
+    <script>
+        require(["./common"], function (common) {
+            alert(common.age);
+//            var objGis = window.open("./gis.html");
+//            common.gis = objGis;
+//            var objMis = window.open("./mis.html");
+        });
+        window.onload = function () {
+            window.onunload = function () {
+                var str = window.localStorage.getItem("open");
+                var obj = JSON.parse(str);
+                obj.close();
+            }
+        }
+    </script>
+</head>
+<body>
+这是mis页面
+</body>
+</html>
