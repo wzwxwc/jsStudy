@@ -1,5 +1,20 @@
-define([], function () {
+define(function () {
     var temp = {};
-    temp.age = 13;
-    return temp;
+
+    var _getPage = function(){
+        return temp.age;
+    }
+
+
+    return {
+        getPage:function(){
+            return _getPage();
+        },
+        setPage:function(val){
+            Object.defineProperty(temp,"age",{
+                value:val,
+                writable:true
+            })
+        }
+    }
 });

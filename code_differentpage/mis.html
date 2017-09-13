@@ -3,24 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>mis</title>
-    <script src="require.js"></script>
     <script>
-        require(["./common"], function (common) {
-            alert(common.age);
-//            var objGis = window.open("./gis.html");
-//            common.gis = objGis;
-//            var objMis = window.open("./mis.html");
-        });
-        window.onload = function () {
-            window.onunload = function () {
-                var str = window.localStorage.getItem("open");
-                var obj = JSON.parse(str);
-                obj.close();
-            }
+        function test() {
+            window.page.close();
         }
     </script>
 </head>
 <body>
 这是mis页面
+<button onclick="test()">关闭gis</button>
 </body>
 </html>
