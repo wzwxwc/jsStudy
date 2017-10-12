@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外部页面</title>
+    <script>
+        function fnInPageUse(e) {
+            console.log(e.target.innerText);
+            var divLog = document.getElementById("logforpagein");
+            divLog.innerHTML = "点击了" + e.target.innerText + "的按钮";
+        }
+    </script>
+</head>
+<body>
+<div>
+    this is a test for iframe event interaction
+</div>
+<div>
+    <iframe src="in.html" frameborder="0"></iframe>
+</div>
+<div>
+    <span>in.html页面中执行了下述操作</span>
+    <div id="logforpagein">
+
+    </div>
+</div>
+</body>
+</html>
