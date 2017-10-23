@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外部页面</title>
+    <script>
+        var out_var = "this is a variable from out";
+
+        function fnOut() {
+            console.log("this is a function from out");
+        }
+
+        function fnUsefnIn() {
+            if (window.inhtml) {
+                window.inhtml.fnIn();
+            }
+        }
+
+        window.onload = function () {
+            fnUsefnIn();
+        }
+    </script>
+</head>
+<body>
+<div>
+    这是外部页面
+</div>
+<iframe src="in.html" frameborder="0"></iframe>
+</body>
+</html>

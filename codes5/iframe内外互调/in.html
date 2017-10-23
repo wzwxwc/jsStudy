@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内部页面</title>
+    <script>
+        var in_var = "this is a variable from in";
+
+        function fnIn() {
+            console.log("this is a function from in");
+        }
+
+        function fnUsefnOut() {
+            if (window.parent.fnOut) {
+                window.parent.fnOut();
+            }
+            if (window.self != window.parent) {
+                window.parent.inhtml = window.parent.inhtml || {};
+                window.parent.inhtml.fnIn = fnIn;
+            }
+        }
+
+        fnUsefnOut();
+    </script>
+</head>
+<body>
+<div>
+    这是内部页面
+    <br>
+    只能让in中的window来访问out的window对象吗？？
+</div>
+</body>
+</html>
