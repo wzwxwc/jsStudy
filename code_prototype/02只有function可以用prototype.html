@@ -5,17 +5,23 @@
     <title>02只有function可以用</title>
     <script>
         var obj = new Object(); // not a functional object
-        // this is wrong!
-       /* obj.prototype.test = function () {
-            alert('Hello?');
-        };*/
+        if (obj.prototype) {
+            //不会进来，因为obj.prototype为null
+            //obj是一个普通对象，不会“自带”prototype属性
+            obj.prototype.test = function () {
+                alert('Hello?');
+            };
+            console.log("给obj.prototype赋了一个test方法");
+        }
 
-        function MyObject() {
+        function MyFunction() {
         } // a first class functional object
-        console.log();
-        MyObject.prototype.test = function () {
-            alert('OK');
-        } // OK
+        if (MyFunction.prototype) {
+            MyFunction.prototype.test = function () {
+                alert('OK');
+            };
+            console.log("为MyFunction.prototype赋了一个test方法");
+        }
     </script>
 </head>
 <body>
