@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04修改原型中的公有变量</title>
+    <script>
+        function Person() {
+        }
+
+        //这样定义的就是一个静态属性name吗？
+        //假如我想在prototype中定义一个方法来修改name属性，该怎么做？
+        Person.prototype.name = "Nicholas";
+        Person.prototype.age = 29;
+        Person.prototype.job = "Software Engineer";
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        };
+        var person1 = new Person();
+        person1.sayName();
+        person1.name = "zc";
+        person1.sayName();
+        var person2 = new Person();
+        person2.sayName(); //"Nicholas"
+        console.log(person1.sayName == person2.sayName); //true
+    </script>
+    <!--<script src="_04.js"></script>-->
+</head>
+<body>
+
+</body>
+</html>

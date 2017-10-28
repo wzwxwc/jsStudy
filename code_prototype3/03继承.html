@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03继承</title>
+    <script>
+        function Parent() {
+            this.classname = "Parent";
+            this.x = 1;
+            this.y = 2;
+        }
+
+        Parent.prototype.z = 3;
+
+        function Child() {
+            this.classname = "Child";
+            this.a = 1;
+            this.b = 2;
+        }
+
+        Child.prototype.c = 3;
+
+        Child.prototype = Parent.prototype;
+
+        var tom = new Child();
+        console.log("debugger");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

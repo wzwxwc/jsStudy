@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03prototype属性和this属性的区别2</title>
+    <script>
+        function T(name) {
+            this.Name = name;
+            var x = 5;
+
+            function privateFunc() {
+                alert('in private method: do sometheing');
+            }
+
+            this.PublicFunc = function () {
+                // 可以调用私有方法，访问私有成员变量。
+                privateFunc();
+                alert('x = ' + x);
+                alert('in public method: do something else.');
+            }
+        }
+        T.prototype.
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

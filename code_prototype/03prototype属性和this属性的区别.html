@@ -9,15 +9,18 @@
             this.job = job;
             this.born = born;
         }
+
         var bill = new Employee("Bill Gates", "Engineer", 1985);
         Employee.prototype.salary = 999;
         bill.salary = 20000;
         bill.born = 1987;
         document.writeln(JSON.stringify(bill));
+        document.writeln(bill.salary);
 
         document.writeln("<br/>");
         var tom = new Employee("Tom", "saler", 1990);
         document.writeln(JSON.stringify(tom));
+        document.writeln(tom.salary);
     </script>
 </head>
 <body>
