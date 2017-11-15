@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06继承_动物</title>
+    <script src="Animal.js"></script>
+    <script src="Penguin.js"></script>
+    <script>
+        var p = new Penguin({
+            name: "p",
+            id: 1
+        });
+        //        p.eat();
+        //        p.introduction();
+
+        var p2 = new Penguin({
+            name: "p2",
+            id: 2
+        });
+        p2.eat();
+        p2.introduction();
+
+        var p3 = new Penguin({
+            name: "p3",
+            id: 3
+        });
+        p3.eat();
+        p3.introduction();
+    </script>
+</head>
+<body>
+怎么用js实现继承？
+并且子类可以使用父类的属性？
+</body>
+</html>

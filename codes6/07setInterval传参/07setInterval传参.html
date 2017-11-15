@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07setInterval传参</title>
+    <script>
+        setInterval(fnme, 5000, "abc", 123, "haha");
+
+        function fnme(a, b, c) {
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</head>
+<body>
+原来setInterval可以通过这样的方式来传参啊！！
+</body>
+</html>
