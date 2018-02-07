@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03闭包局部变量.html</title>
+    <script>
+        function test() {
+            var p1 = 12;
+            //如果不改变test的情况下，p2在test外是无法被访问的
+            var p2 = "abc";
+            return {
+                say1: function () {
+                    console.log(p1);
+                }
+            }
+        }
+
+        var f1 = test();
+        f1.say1();
+
+        //test()内部中的p2是无法被访问的
+        f1.say2 = function () {
+            console.log(p2);
+        };
+        f1.say2();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
