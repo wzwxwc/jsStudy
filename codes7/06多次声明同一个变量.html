@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06多次声明同一个变量.html</title>
+    <script>
+        function test() {
+            var a = 1;
+            var a;
+            console.log(a);
+            var b;
+            var b = 2;
+            var b = 3;
+            var b = "abc";
+            var b;
+            console.log(b);
+        }
+
+        test();
+    </script>
+</head>
+<body>
+一个变量被多次声明，按非空的那个为准
+如果有多个非空值，则按照最后一次非空值为准！
+</body>
+</html>
