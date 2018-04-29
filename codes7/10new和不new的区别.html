@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10new和不new的区别</title>
+    <script>
+        function test() {
+            // this.a = 123;
+            console.log("hee");
+        }
+
+        var a = test();
+        //如果使用new的话，则默认会把this对象返回出来
+        var b = new test();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

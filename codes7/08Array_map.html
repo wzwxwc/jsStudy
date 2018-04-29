@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08 array的map方法</title>
+    <script>
+        var arr = [{
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": -3200972563786062000,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:20:52",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": -5660599139369265000,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:22:29",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": -471713541897240700,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:06",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": -295342868675865500,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:11",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": 3400215950735881000,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:12",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": 4918699770388714000,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:12",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": 6799825187174414000,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:13",
+            "value": "103.03"
+        }, {
+            "cgqdwid": 211,
+            "cgqid": 211,
+            "chuanganqibianhao": "coo11112",
+            "endTime": null,
+            "id": -2749235565541041700,
+            "shifouzaixian": 0,
+            "startTime": null,
+            "time": "2018-04-02 14:28:14",
+            "value": "103.03"
+        }];
+        var test = arr.map(function (item) {
+            var time = item.time;
+            var time = time.substr(0, time.indexOf(" "))
+            return time;
+        });
+        console.log(test);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
