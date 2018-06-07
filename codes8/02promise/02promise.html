@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02promise</title>
+    <script>
+        let promise = new Promise(function (resolve, reject) {
+            console.log('Promise内部-resolve之前');
+            resolve();
+            console.log('Promise内部-resolve之后');
+        });
+
+        promise.then(function () {
+            console.log('resolved.');
+        });
+
+        console.log('Hi!');
+
+    </script>
+</head>
+<body>
+输出结果
+<br>
+Promise内部-resolve之前
+Promise内部-resolve之后
+resolved
+Hi
+</body>
+</html>
