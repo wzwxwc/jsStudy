@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01select的赋值和回显</title>
+    <script>
+        var a=3;
+        var domSel=null;
+        window.onload = function () {
+            domSel = document.getElementById("test");
+            // domSel.selectedIndex = 1;    //成功
+            // domSel.selectedValue = "2";     //失败
+            // domSel.value = "1";     //成功
+            domSel.value = a;     //成功
+        }
+    </script>
+</head>
+<body>
+<select name="" id="test">
+    <option value=0>早上</option>
+    <option value=3>中午</option>
+    <option value=5>晚上</option>
+</select>
+</body>
+</html>
+<!--
+上述这个是直接操作dom的形式
+那么如果换成vue的形式，那么该如何做呢？
+-->
