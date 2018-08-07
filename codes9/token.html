@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../deps/jquery.js"></script>
+    <script>
+        var url = "http://219.149.226.180:8060/geoserver/jilin/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jilin:cityborder3857&outputFormat=application%2Fjson";
+        $.ajax({
+            url: url,
+            success: function (res) {
+                console.log(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    </script>
+</head>
+<body>
+在ajax里加上token，就会导致geoserver服务请求失败？
+
+</body>
+</html>
