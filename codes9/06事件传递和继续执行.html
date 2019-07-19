@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01事件传递和继续执行</title>
+</head>
+<body>
+<button id="btn1">click me</button>
+<br>
+<br>
+<button id="btn2">click me</button>
+</body>
+<script>
+    //下述这种方式绑定事件会叠加
+    var btn1 = document.getElementById("btn1");
+    btn1.addEventListener("click", function () {
+        console.log("执行了click绑定事件1");
+        return false;
+    });
+    btn1.addEventListener("click", function () {
+        console.log("执行了click的绑定事件2");
+    });
+
+    //下述这种方式绑定事件会覆盖前任
+    var btn2 = document.getElementById("btn2");
+    btn2.onclick = function (ev) {
+        console.log("执行了btn2的click绑定事件1");
+    };
+    btn2.onclick = function (ev) {
+        console.log("执行了btn2的click绑定事件2");
+    };
+
+</script>
+</html>

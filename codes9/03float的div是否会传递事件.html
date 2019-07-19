@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03float的div是否会传递事件</title>
+    <style>
+        .up {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            float: left;
+        }
+
+        .down {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="up">
+
+</div>
+<div class="down">
+
+</div>
+我想验证，点击float起来的div
+下面的div是否也会捕获到click事件？
+<br>
+<b>回答：不会出现事件冒泡</b>
+</body>
+<script>
+    var divUp = document.getElementsByClassName("up")[0];
+    var divDown = document.getElementsByClassName("down")[0];
+    divUp.onclick = function () {
+        console.log("上面的div被点击");
+    };
+    divDown.onclick = function () {
+        console.log("下面的div被点击");
+    }
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02事件处理return false</title>
+
+</head>
+<body>
+<span>1、表单提交</span>
+<form action="">
+    <input type="text" value="123" name="name">
+    <input id="btnSubmit" type="submit">
+</form>
+<span>2、链接跳转</span>
+<br>
+<a id="aBaidu" href="http://www.baidu.com">跳转到百度</a>
+<br>
+<span>3、键盘输入</span>
+<input type="text" id="txtInput">
+</body>
+<script>
+    var btnSubmit = document.getElementById("btnSubmit");
+    btnSubmit.addEventListener("click", function () {
+        //表单提交按钮的onclick事件处理程序能通过返回false阻止 浏览器提交表单
+        //怎么感觉没有实现呢?
+        return false;
+    });
+    btnSubmit.onclick = function (ev) {
+        return false;
+    };
+
+    var aBaidu = document.getElementById("aBaidu");
+    aBaidu.onclick = function (ev) {
+        console.log("a标签的onclick方法");
+        return false;
+    };
+    aBaidu.addEventListener("click", function () {
+        console.log("a标签的addEventListener方法");
+        // 通过addEventListener绑定的事件，下述语句不起作用，只有onclick的方式才起作用
+        // return false;
+    });
+
+    var txtInput = document.getElementById("txtInput");
+    txtInput.onkeypress = function (ev) {
+        var arrMath = ["a", "b", "c"];
+        if (arrMath.indexOf(ev.key) >= 0) {
+            //do nothing
+        } else {
+            return false;
+        }
+        console.log(ev);
+    }
+</script>
+</html>
